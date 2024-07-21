@@ -68,4 +68,38 @@ knitr::opts_chunk$set(echo = TRUE)
   
     \fimSol
   \end{enumerate}
+  %%
+  \item Mostre que as seguintes forças são conservativas:
+    \begin{enumerate}[label=\alph*)]
+      \item $\vet{F} = \dfrac{3}{5}x^2 y^5 \ux + x^3y^4 \uy$\\
+      \iniSol
+        Uma força $\vet{F}$ é conservativa quando seu rotacional for identicamente nulo, ou seja, $\text{rot} \vet{F} = \vet{0}$. Assim, 
+        \begin{align*}
+          \text{rot}\;\vet{F} &= 
+          \begin{vmatrix}
+            \ux & \uy & \uz\\
+            \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+            \frac{3}{5}x^2y^5 & x^3y^4 & 0
+          \end{vmatrix}\\
+          &= \ux \left[\frac{\partial}{\partial y} (0) - \frac{\partial}{\partial z} (x^3y^4)\right] - \uy \left[\dfrac{\partial}{\partial x} (0) - \frac{\partial}{\partial z} \left(\frac{3}{5}x^2y^5\right)\right] + \uz \left[\frac{\partial}{\partial x} (x^3y^4) - \frac{\partial}{\partial y} \left(\frac{3}{5} x^2 y^5\right)\right]\\
+          &= \ux (0 - 0) - \uy (0 - 0) + \uz (3x^2y^4 - 3x^2 y^4) \\
+          &= 0\ux + 0\uy + 0\uz = \vet{0}
+        \end{align*}
+      \fimSol
+      %%
+      \item $\vet{F} = xy^3 \ux + \dfrac{3}{2}x^2 y^2 \uy$\\
+      \iniSol
+        \begin{align*}
+          \text{rot}\;\vet{F} &=
+          \begin{vmatrix}
+            \ux & \uy & \uz\\
+            \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+            xy^3 & \frac{3}{2}x^2y^2 & 0
+          \end{vmatrix}\\
+          &= \ux \left[\dfrac{\partial}{\partial y} (0) - \frac{\partial}{\partial z} \left(\frac{3}{2}x^2y^2\right)\right] + \uy \left[\frac{\partial}{\partial z} (xy^3) - \frac{\partial}{\partial x} (0)\right] + \uz \left[\frac{\partial}{\partial x} \left(\frac{3}{2}x^2y^2\right)- \frac{\partial}{\partial y} (xy^3)\right]\\
+          &= \ux (0 - 0) + \uy(0 - 0) + \uz(3xy^2 - 3xy^2)\\
+          &= \vet{0}
+        \end{align*}
+      \fimSol
+    \end{enumerate}
 \end{enumerate}

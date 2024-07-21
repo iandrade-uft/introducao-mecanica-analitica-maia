@@ -102,7 +102,14 @@ $endif$
 
 
 % Bold Vector
-\newcommand{\vet}[1]{\mathbf{\hat{#1}}}
+%\newcommand{\vet}[1]{\mathbf{\hat{#1}}}
+\newcommand{\vet}[1]{\mathbf{#1}}
+
+% Vetores unitários
+\newcommand{\ux}{\vet{i}}
+\newcommand{\uy}{\vet{j}}
+\newcommand{\uz}{\vet{k}}
+
 
 % Comando iniciar Solução
 \newcommand{\iniSol}{
