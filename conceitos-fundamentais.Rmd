@@ -127,4 +127,27 @@ knitr::opts_chunk$set(echo = TRUE)
       %%
       Como $\text{rot}\;\vet{F} \neq \vet{0}$, a força $\vet{F}$ não é conservativa.
     \fimSol
+    %%
+    \item Mostre que:
+    \begin{enumerate}[label=\alph*)]
+      \item $\ddot{x}dx = d\left(\frac{1}{2}\dot{x}^2\right)$\\
+      \iniSol
+        Sejam $x = x(t)$ e $du = \ddot{x}dx$. Então,
+        \begin{align*}
+          du = \ddot{x}dx &\Rightarrow \dfrac{du}{dt} = \ddot{x}\dfrac{dx}{dt} \Rightarrow \dfrac{du}{dt} = \ddot{x}\dot{x} \Rightarrow \dfrac{du}{dt} = \dfrac{d (\dot{x})}{dt} \dot{x}\\
+          &\Rightarrow \dfrac{du}{dt} = \dfrac{1}{2}\dfrac{d (\dot{x})}{dt} \dot{x} + \dfrac{1}{2}\dfrac{d (\dot{x})}{dt} \dot{x}\\
+          &\Rightarrow \dfrac{du}{dt} = \dfrac{1}{2}\dfrac{d (\dot{x})}{dt} \dot{x} + \dfrac{1}{2} \dot{x} \dfrac{d (\dot{x})}{dt} \\
+          &\Rightarrow \dfrac{du}{dt} = \dfrac{1}{2} \dfrac{d}{dt} \left(\dot{x} \dot{x}\right) = \dfrac{d}{dt}\left(\dfrac{1}{2}\dot{x}^2\right)\\
+          &\Rightarrow du = d \left(\dfrac{1}{2}\dot{x}^2\right)\\
+          &\Rightarrow \ddot{x}dx = d \left(\dfrac{1}{2}\dot{x}^2\right)
+        \end{align*}
+      \fimSol
+      %%
+      \item $d\left(\dot{x}^2\right) = 2\dot{x}\ddot{x}dt$\\
+      \iniSol
+        \begin{align*}
+          \dfrac{d}{dt}\left(\dot{x}^2\right) = 2 \dot{x} \dfrac{d}{dt}(\dot{x}) = 2 \dot{x} \ddot{x} \Rightarrow d\left(\dot{x}^2\right) = 2 \dot{x} \ddot{x} dt
+        \end{align*}
+      \fimSol
+    \end{enumerate}
 \end{enumerate}
