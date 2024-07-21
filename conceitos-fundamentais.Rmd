@@ -102,4 +102,29 @@ knitr::opts_chunk$set(echo = TRUE)
         \end{align*}
       \fimSol
     \end{enumerate}
+    %%
+    \item Seja uma força $\vet{F} = 3x^2yz \ux + 3xy^2z \uy + 3xyz^2 \uz$. Calcule a expressão do trabalho elementar efectuado por esta força. Vefifique se esta força é conservativa.\\
+    \iniSol
+      Seja $\vet{r} = z \ux + y \uy + z \uz \Rightarrow d\vet{r} = dx \ux + dy \uy + dz \uz$. Assim, o trabalho elementar da força dada será:
+      \begin{align*}
+        \overline{dW} &= \vet{F} \cdot d\vet{r} \\
+        &= \left(3x^2yz \ux + 3xy^2z \uy + 3xyz^2 \uz\right) \cdot (dx \ux + dy \uy + dz \uz)\\
+        &= 3x^2yz dx + 3xy^2z dy + 3xyz^2 dz
+      \end{align*}
+      %%
+      Para verificar se a força $\vet{F}$ é conservativa, calculemos o seu rotacional:
+      \begin{align*}
+        \text{rot}\;\vet{F} = 
+        \begin{vmatrix}
+          \ux & \uy & \uz\\
+          \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+          F_x & F_y & F_z
+        \end{vmatrix}
+        &= \ux \left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right) + \uy \left(\dfrac{\partial F_x}{\partial z} - \dfrac{\partial Fz }{\partial x}\right) + \uz \left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)\\
+        &= \ux (3xz^2 - 3xy^2) + \uy (3x^2y - 3yz^2) + \uz (3y^2 z - 3x^2 z)\\
+        &= -3x(y^2 - z^2)\ux - 3y(z^2 - x^2) -3z(x^2 - y^2)
+      \end{align*}
+      %%
+      Como $\text{rot}\;\vet{F} \neq \vet{0}$, a força $\vet{F}$ não é conservativa.
+    \fimSol
 \end{enumerate}
