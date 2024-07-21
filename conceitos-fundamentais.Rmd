@@ -150,4 +150,81 @@ knitr::opts_chunk$set(echo = TRUE)
         \end{align*}
       \fimSol
     \end{enumerate}
+    %%
+    \item Num pêndulo simples (Figura 2.14) mostre que a energia potencial pode ser dada quer por $V = -mgl \cos{\theta}$, quer por $V = mgl (1 - \cos{\theta})$. Justifique.
+    %%
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \fill [pattern = north east lines] (-1.5,0) rectangle ++(3,.3);
+        \draw[thick] (-1.5,0) -- ++(3,0);
+        \draw[thick] (0, 0) -- (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`) node[midway, above, xshift=2pt] {$l$};
+        \filldraw[thick, black] (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`) circle (`r 0.15`) node[right, xshift=5pt] {$m$};
+        \draw[thick, -latex] (0, -2) arc (270:`r 270+40`:2) node[midway, below] {$\theta$};
+        \draw[thick] (0, 0) -- (0, -3);
+        \node at (0, 0.8) {Figura 2.14};
+      \end{tikzpicture}
+    \end{figure}
+    %%
+    \iniSol
+      \textbf{Caso I}: Consideremos inicialmente um referencial cuja origem está situada no ponto de suspensão do pêndulo, conforme mostrado abaixo. Esse ponto coresponderá à origem da energia potencial gravitacional, 
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \fill [pattern = north east lines] (-1.5,0) rectangle ++(3,.3);
+        \draw[thick] (-1.5,0) -- ++(3,0);
+        \draw[thick] (0, 0) -- (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`);
+        \filldraw[thick, black] (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`) circle (`r 0.15`) node[mainColor, right, xshift=5pt] {$A$};
+        \draw[thick, -latex] (0, -1.5) arc (270:`r 270+40`:1.5) node[midway, below] {$\theta$};
+        \draw[thick] (0, 0) -- (0, -3);
+        \node at (0, 0.8) {Caso I};
+        %%%
+        \draw[mainColor, ultra thick, -latex] (2, -.5) -- (2, -1.5) node[midway, right] {$\vet{g}$};
+        \draw[mainColor, thick, latex-latex] (-1.0, -1.5) node[below] {$x$} -- (-2.0,-1.5) -- (-2, -0.5) node[left] {$y$};
+        \node[mainColor, below, xshift=-6pt] at (0, 0) {$O$};
+        \draw[dashed, mainColor, thick] (0, `r -3*cos(40*pi/180)`) -- (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`);
+        \draw [mainColor] (0, `r -3*cos(40*pi/180)`) rectangle ++(0.15, 0.15);
+        \draw[latex-latex, mainColor, thick] (-0.5, `r -3*cos(40*pi/180)`) -- (-0.5, 0) node[midway, left] {$l\cos{\theta}$};
+        \draw[thick, mainColor] (0, `r -3*cos(40*pi/180)`) -- (-0.6, `r -3*cos(40*pi/180)`);
+      \end{tikzpicture}
+    \end{figure}
+    %%
+    A energia potencial no ponto $A$ é dada por:
+    $$
+    V = -\int_{O}^{A} dW = -\int_{O}^{A} (F_x dx + F_y dy + F_z dz) 
+    $$
+    em que $F_x = 0$, $F_y = -mg$ e $F_z = 0$. Portanto,
+    \begin{align*}
+      V &= -\int_{O}^{A} (-mg)\; dy = mg \int_{0}^{-l\cos{\theta}} dy\\
+      V &= -mgl\cos{\theta}
+    \end{align*}
+    %%
+    \textbf{Caso II}: Como segunda opção, podemos fixar os eixos coordenados no ponto de equilíbio do pêndulo, conforme mostrado abaixo. Esse ponto corresponderá ao valor nulo da energia potencial.
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \fill [pattern = north east lines] (-1.5,0) rectangle ++(3,.3);
+        \draw[thick] (-1.5,0) -- ++(3,0);
+        \draw[thick] (0, 0) -- (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`);
+        \filldraw[thick, black] (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`) circle (`r 0.15`) node[mainColor, right, xshift=5pt] {$A$};
+        \draw[thick, -latex] (0, -1.5) arc (270:`r 270+40`:1.5) node[midway, below] {$\theta$};
+        \draw[dashed, thick] (0, 0) -- (0, -3) circle (`r 0.15`);
+        \node at (0, 0.8) {Caso II};
+        %%%
+        \draw[mainColor, ultra thick, -latex] (2, -.5) -- (2, -1.5) node[midway, right] {$\vet{g}$};
+        \draw[mainColor, thick, latex-latex] (-1.0, -1.5) node[below] {$x$} -- (-2.0,-1.5) -- (-2, -0.5) node[left] {$y$};
+        \node[mainColor, below, xshift=-8pt] at (0, -3) {$O$};
+        \draw[dashed, mainColor, thick] (0, `r -3*cos(40*pi/180)`) -- (`r 3*sin(40*pi/180)`, `r -3*cos(40*pi/180)`) -- (0, -3) -- cycle;
+        \draw [mainColor] (0, `r -3*cos(40*pi/180)`) rectangle ++(0.15, 0.15);
+        \draw[latex-latex, mainColor, thick] (-0.5, `r -3*cos(40*pi/180)`) -- (-0.5, -3) node[midway, left] {$l(1 - \cos{\theta})$};
+        \draw[thick, mainColor] (0, -3) -- (-0.6, -3);
+        \draw[thick, mainColor] (0, `r -3*cos(40*pi/180)`) -- (-0.6, `r -3*cos(40*pi/180)`);
+      \end{tikzpicture}
+    \end{figure}
+    A energia potencial no ponto $A$ será:
+    \begin{align*}
+      V &= -\int_{O}^{A} dW = - \int_{0}^{l(1-\cos{\theta})} (-mg)\; dy = mg\left[l(1-cos{\theta}) - 0\right]\\
+      V &= mgl (1 - \cos{\theta})
+    \end{align*}
+    \fimSol
 \end{enumerate}
