@@ -227,4 +227,29 @@ knitr::opts_chunk$set(echo = TRUE)
       V &= mgl (1 - \cos{\theta})
     \end{align*}
     \fimSol
+    %%
+    \item Supondo que $dV = kxdx$, determine:
+    \begin{enumerate}[label=\alph*)]
+      \item a derivada de $V$ em ordem a $x$;\\
+      \iniSol
+      %%
+      $$
+      \dfrac{dV}{dx} = kx \dfrac{dx}{dx} = kx
+      $$
+      \fimSol
+      %%
+      \item a derivada de $V$ em ordem ao tempo;\\
+      \iniSol
+      %%
+      $$
+      \dfrac{dV}{dt} = kx \dfrac{dx}{dt} = kx\dot{x}
+      $$
+      \fimSol
+      %%
+      \item o valor de $dV$ no intervalo de tempo $dt$.\\
+      \iniSol
+      %%
+      $$\dfrac{dV}{dt} = kx\dot{x} \Rightarrow dV = kx\dot{x} dt$$
+      \fimSol
+    \end{enumerate}
 \end{enumerate}
