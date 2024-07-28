@@ -252,4 +252,115 @@ knitr::opts_chunk$set(echo = TRUE)
       $$\dfrac{dV}{dt} = kx\dot{x} \Rightarrow dV = kx\dot{x} dt$$
       \fimSol
     \end{enumerate}
+    %%
+    \item Deduza a equação de equilícrio dinâmico para os sistemas representadis nas figuras 2.15a e 2-15b, usando o princípio da conservação de energia. Suponha pequenos deslocamentos.
+```{r, include=FALSE}
+x <- c()
+y <- c()
+n <- 20
+theta <- seq(from=pi, to=13*pi/4, length=20)
+x <- theta * cos(theta) / 18.4
+y <- theta * sin(theta) / 18.4 + 0.7
+spiral <- ""
+for (i in 2:n) {
+  spiral <- sprintf("%s\\draw[ultra thick] (%.2f, %.2f) -- (%.2f, %.2f);", spiral, x[i], y[i], x[i-1], y[i-1])
+}
+```
+    \begin{enumerate}[label=(\alph*)]
+    \item 
+    %%
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        % Base 1
+        \fill[pattern=north east lines] (-1.25, 0) rectangle ++(2.5, 0.25);
+        \draw[thick] (-1.25, 0.25) -- ++(2.5, 0);
+        % Suporte da base 1
+        \draw[thick] (1, 0.25) arc (0:180:1);
+        % Base 2
+        \fill[pattern=north east lines] (6.75, -2) rectangle ++(2.5, 0.25);
+        \draw[thick] (6.75, -1.75) -- ++(2.5, 0);
+        % Bloco de massa m_2
+        \draw[thick] (6.75, -0.5) rectangle ++(2.5, 2.5) node[midway, right, xshift=30pt] {$m_2$};
+        % Haste de massa m_1
+        \draw[thick, fill=white] (-0.5, 0.5) rectangle ++(9, 0.5) node[midway, above, yshift=5pt] {$m_1$};
+        % Pino do suporte 1
+        \draw[thick] (0, 0.75) circle (0.25);
+        % Pino do suporte 2
+        \draw[thick] (8, 0.75) circle (0.25);
+        % Mola
+        \draw (8, -1.75) to[spring, l=$k$] (8, -0.5);
+        % Medidas
+        \draw[dashed] (0, 1.25) --  (0, 3.25);
+        \draw[dashed] (8, 2.00) --  (8, 3.25); 
+        \draw[latex-latex] (0, 3) -- ++(8, 0) node[midway, above] {$l$};
+        \node[above] at (4, 4) {Figura 2.15(a)}; 
+      \end{tikzpicture}
+    \end{figure}
+    %%
+    \item 
+    %%
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        % Base 1
+        \fill[pattern=north east lines] (-1.25, 0) rectangle ++(2.5, 0.25);
+        \draw[thick] (-1.25, 0.25) -- ++(2.5, 0);
+        % Suporte da base 1
+        \draw[thick] (1, 0.25) arc (0:180:1);
+        % Base 2
+        \fill[pattern=north east lines] (6.75, -2) rectangle ++(2.5, 0.25);
+        \draw[thick] (6.75, -1.75) -- ++(2.5, 0);
+        % Base 3
+        \fill[pattern=north east lines] (-1.75, 3.75) rectangle ++ (0.25, 2);
+        \draw[thick] (-1.5, 3.75) -- ++(0, 2);
+        % Bloco de massa m_2
+        \draw[thick] (6.75, -0.5) rectangle ++(2.5, 2.5) node[midway, right, xshift=30pt] {$m_2$};
+        % Bloco de massa m_1
+        \draw[fill=white] (0, 0.75) -- ++ (8, 0) node[midway, below] {$b$} -- ++(-8, 4.0) node[midway, right, yshift=2pt] {$m_1, J_{\text{c.g.}}$}-- (0, 0.75) node[midway, left] {$a$} -- cycle;
+        % Pino do suporte 1
+        \draw[thick, fill=white] (0, 0.75) circle (0.25);
+        % Pino do suporte 2
+        \draw[thick, fill=white] (8, 0.75) circle (0.25);
+        % Mola 1
+        \draw (0, 4.75) to[spring, l=$k_1$] (-1.5, 4.75);
+        % Mola 2
+        \draw (8, -1.75) to[spring, l=$k_2$] (8, -0.5);
+        \filldraw (1.5,2.5) circle (4pt) node[above] {c.g.};
+        `r spiral`
+        \node[above] at (4, 8) {Figura 2.15(b)}; 
+      \end{tikzpicture}
+    \end{figure}
+    \end{enumerate}
+    \item Deduza a equação de equilíbrio dinâmico para o sistema representado na figura 2.16, usando a equação (2.71). Suponha pequenos deslocamentos.
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        % Base 1
+        \fill[pattern=north east lines] (-1.25, 0) rectangle ++(2.5, 0.25);
+        \draw[thick] (-1.25, 0.25) -- ++(2.5, 0);
+        % Suporte da base 1
+        \draw[thick] (1, 0.25) arc (0:180:1);
+        % Base 2
+        \fill[pattern=north east lines] (6.75, -2) rectangle ++(2.5, 0.25);
+        \draw[thick] (6.75, -1.75) -- ++(2.5, 0);
+        % Bloco de massa m_2
+        \draw[thick] (6.75, -0.5) rectangle ++(2.5, 2.5) node[midway, right, xshift=30pt] {$m_2$};
+        % Haste de massa m_1
+        \draw[thick, fill=white] (-0.5, 0.5) rectangle ++(9, 0.5) node[midway, above, yshift=5pt] {$m_1$};
+        % Pino do suporte 1
+        \draw[thick] (0, 0.75) circle (0.25);
+        % Pino do suporte 2
+        \draw[thick] (8, 0.75) circle (0.25);
+        % Mola
+        \draw (7.5, -1.75) to[spring, l=$k$] (7.5, -0.5);
+        % Amortecimento
+        \draw (8.5, -0.5) to[damper, l=$c$] (8.5, -1.75);
+        % Medidas
+        \draw[dashed] (0, 1.25) --  (0, 3.25);
+        \draw[dashed] (8, 2.00) --  (8, 3.25); 
+        \draw[latex-latex] (0, 3) -- ++(8, 0) node[midway, above] {$l$};
+        \node[above] at (4, 4) {Figura 2.16}; 
+      \end{tikzpicture}
+    \end{figure}
 \end{enumerate}
